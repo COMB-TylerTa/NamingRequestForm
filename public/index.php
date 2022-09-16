@@ -10,6 +10,10 @@
 
 require_once "includes/header.php";
 
+
+$showform = 1; //flag to show form - initially, show form.
+$errmsg = 0; //flag to track errors - initially, no errors.
+
 $states = array(
     'AL'=>'Alabama',
     'AK'=>'Alaska',
@@ -86,6 +90,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 ?>
 
 <body>
+    <?php
+    //Display the form
+    if($showform == 1){
+    ?>
     <div class="formHeader">
       <h1>CITY FACILITY NAMING REQUEST FORM</h1>
       <h2>Memorial Placements and Naming/Renaming Facilities</h2>
@@ -143,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <label for="phone">Phone:</label><br>
             <input type="tel" id="phone" name="phone"><br>
 
-          </form>
+
         </div>
 
         <div class="requestDetail">
@@ -196,6 +204,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <div class="submit">
            <br><input type="submit" name="submit" id="submit" value="Submit Form"/>
         </div>
+      </form>
+        <?php
+        }//showform
+        ?>
 
     </div>
 </body>
