@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if($showform == 0){
     ?>
 
-    <p>Thank you! The City has recieved your request and will review your request shortly.</p>
+    <p>Thank you! The City has recieved your request and will review it shortly.</p>
 
     <?php
       }
