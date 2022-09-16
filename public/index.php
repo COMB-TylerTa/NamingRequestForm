@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         <div class="contactInfo">
 
-          <form>
+          <form  name="request" id="request" method="post" action = "<?php echo $currentFile;?>">
             <label for="name">Name:</label><br>
             <input type="text" id="name" name="name"><br>
 
@@ -133,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <?php foreach ($states as $key => $value) { ?>
                 <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
             <?php } ?>
-            
+
           </select><br>
 
             <label for="zip">Zip Code:</label><br>
