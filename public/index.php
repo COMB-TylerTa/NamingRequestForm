@@ -72,8 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $state = trim($_POST['state']);
         $zip = trim($_POST['zip']);
         $email = trim($_POST['email']);
-        $mailinglist = $_POST['mailinglist'];
-        $state = $_POST['state'];
+
 
 
         //EMAIL the user upon registration success
