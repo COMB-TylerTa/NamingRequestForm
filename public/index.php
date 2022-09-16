@@ -82,8 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         mail($email,$subject,$txt);
 
         $showform = 0;
-    } // else control code
-}//submit
+  }
 
 ?>
 
