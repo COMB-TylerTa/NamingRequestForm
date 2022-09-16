@@ -90,6 +90,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 ?>
 
 <body>
+
+    <?php
+    //after user clicks submit, hide form and display message
+    if($showform == 0){
+    ?>
+
+    <p>Thank you! The City has recieved your request and will review your request shortly.</p>
+
+    <?php
+      }
+    ?>
+
+
     <?php
     //Display the form
     if($showform == 1){
