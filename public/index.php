@@ -270,7 +270,7 @@
 
                                     <div id="collapseOther" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
                                         <div class="card-body accordion-body">
-                                            // Collapse Other Memorial Content
+                                            // Other Memorial Content Goes Here
                                         </div>
                                     </div>
 
