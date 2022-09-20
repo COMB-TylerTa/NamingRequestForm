@@ -145,22 +145,22 @@
 
                         <div class="form-group required">
                             <label class="control-label">Name</label>
-                            <input class="form-control form-control-sm" type="text" id="contactName" name="contactName">
+                            <input class="form-control form-control-sm" type="text" id="contactName" name="contactName" required>
                         </div>
 
                         <div class="form-group required">
                             <label class="control-label">Street Address</label>
-                            <input class="form-control form-control-sm" type="text" id="contactAddress01" name="contactAddress01">
+                            <input class="form-control form-control-sm" type="text" id="contactAddress01" name="contactAddress01" required>
                         </div>
 
-                        <div class="form-group required">
+                        <div class="form-group">
                             <label class="control-label">Street Address Line 2</label>
                             <input class="form-control form-control-sm" type="text" id="contactAddress02" name="contactAddress02">
                         </div>
 
                         <div class="form-group required">
                             <label class="control-label">City</label>
-                            <input class="form-control form-control-sm" type="text" id="contactCity" name="contactCity">
+                            <input class="form-control form-control-sm" type="text" id="contactCity" name="contactCity" required>
                         </div>
 
                         <div class="form-group required">
@@ -174,17 +174,17 @@
 
                         <div class="form-group required">
                             <label class="control-label">Zip Code</label>
-                            <input class="form-control form-control-sm" type="text" id="contactZipCode" name="contactZipCode">
+                            <input class="form-control form-control-sm" type="text" id="contactZipCode" name="contactZipCode" required>
                         </div>
 
                         <div class="form-group required">
                             <label class="control-label">Email</label>
-                            <input class="form-control form-control-sm" type="email" id="contactEmail" name="contactEmail">
+                            <input class="form-control form-control-sm" type="email" id="contactEmail" name="contactEmail" required>
                         </div>
 
                         <div class="form-group required">
                             <label class="control-label">Phone Number</label>
-                            <input class="form-control form-control-sm" type="tel" id="contactPhoneNumber" name="contactPhoneNumber">
+                            <input class="form-control form-control-sm" type="tel" id="contactPhoneNumber" name="contactPhoneNumber" required>
                         </div>
 
                         <div class="form-group required">
@@ -257,8 +257,18 @@
                                     </div>
 
                                     <div id="collapseIndividualFamily" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
-                                        <div class="card-body accordion-body">
-                                        // Individual/Family Content Goes Here
+                                        <div class="card-body accordion-body container">
+                                            <h3>Request Related to Individual or Family</h3>
+
+                                            <label>Name</label>
+                                            <input class="form-control form-control-sm" type="text" id="individualFamilyName" name="individualFamilyName">
+
+                                            <label>Deceased?</label>
+                                            <select class="form-select form-select-sm" aria-label="Deceased dropdown selection" required>
+                                                <option value="" selected disabled>Please select</option>
+                                                <option value="yesDeceased">Yes</option>
+                                                <option value="notDeceased">No</option>
+                                            </select>
                                         </div>
                                     </div>
 
