@@ -11,78 +11,34 @@
 require_once "includes/header.php";
 
 
-$showform = 1; //flag to show form - initially, show form.
-$errmsg = 0; //flag to track errors - initially, no errors.
-
-$states = array(
-    'AL'=>'Alabama',
-    'AK'=>'Alaska',
-    'AZ'=>'Arizona',
-    'AR'=>'Arkansas',
-    'CA'=>'California',
-    'CO'=>'Colorado',
-    'CT'=>'Connecticut',
-    'DE'=>'Delaware',
-    'DC'=>'District of Columbia',
-    'FL'=>'Florida',
-    'GA'=>'Georgia',
-    'HI'=>'Hawaii',
-    'ID'=>'Idaho',
-    'IL'=>'Illinois',
-    'IN'=>'Indiana',
-    'IA'=>'Iowa',
-    'KS'=>'Kansas',
-    'KY'=>'Kentucky',
-    'LA'=>'Louisiana',
-    'ME'=>'Maine',
-    'MD'=>'Maryland',
-    'MA'=>'Massachusetts',
-    'MI'=>'Michigan',
-    'MN'=>'Minnesota',
-    'MS'=>'Mississippi',
-    'MO'=>'Missouri',
-    'MT'=>'Montana',
-    'NE'=>'Nebraska',
-    'NV'=>'Nevada',
-    'NH'=>'New Hampshire',
-    'NJ'=>'New Jersey',
-    'NM'=>'New Mexico',
-    'NY'=>'New York',
-    'NC'=>'North Carolina',
-    'ND'=>'North Dakota',
-    'OH'=>'Ohio',
-    'OK'=>'Oklahoma',
-    'OR'=>'Oregon',
-    'PA'=>'Pennsylvania',
-    'RI'=>'Rhode Island',
-    'SC'=>'South Carolina',
-    'SD'=>'South Dakota',
-    'TN'=>'Tennessee',
-    'TX'=>'Texas',
-    'UT'=>'Utah',
-    'VT'=>'Vermont',
-    'VA'=>'Virginia',
-    'WA'=>'Washington',
-    'WV'=>'West Virginia',
-    'WI'=>'Wisconsin',
-    'WY'=>'Wyoming',
-);
-
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-        $name = trim($_POST['name']);
-        $streetaddress = trim($_POST['streetaddress']);
-        $city = trim($_POST['city']);
+        $name = trim($_POST['contactName']);
+        $streetaddress = trim($_POST['contactAddress01']);
+        $streetaddress2 = trim($_POST['contactAddress02']);
+        $city = trim($_POST['contactCity']);
         $state = trim($_POST['state']);
-        $zip = trim($_POST['zip']);
-        $email = trim($_POST['email']);
+        $zip = trim($_POST['contactZipCode']);
+        $email = trim($_POST['contactEmail']);
+        $phone = trim($_POST['contactPhoneNumber']);
+        $contactpref = ($_POST['perferContact']);
+
+        $requestType = ($_POST['requestType']);
+        $requestGroup = ($_POST['requestGroup']);
 
 
+
+        require_once "includes/email-template.php";
+
+        $emailTemplate = wordwrap($emailTemplate, 70, "\r\n");
+
+        // To send HTML mail, the Content-type header must be set
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
         //EMAIL the user upon registration success
-        $subject = "Test, It Worked!";
-        $txt = "Test";
-        mail($email,$subject,$txt);
+        $subject = "City Facility Naming Request";
+        mail($email,$subject,$emailTemplate,implode("\r\n", $headers));
 
         $showform = 0;
   }
@@ -107,121 +63,182 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     //Display the form
     if($showform == 1){
     ?>
-    <div class="formHeader">
-      <h1>CITY FACILITY NAMING REQUEST FORM</h1>
-      <h2>Memorial Placements and Naming/Renaming Facilities</h2>
 
-      <a href="https://cms6.revize.com/revize/myrtlebeachsc/FacilitiesNamingPolicy.pdf">Before submitting a request, click here to review the city’s Facility Naming Policy.</a>
+    <div class="container">
 
-      <p>
-        The City of Myrtle Beach offers the opportunity for a member of the public to request to name, or rename, a city-owned asset. City assets include, but are not limited to, the following: buildings, structures, recreational facilities, parks, benches, trees and other sites.
-        Requestors submit the form below to ask the City of Myrtle Beach to: name an asset in honor, memory or recognition of an individual, family, association, group or significant event; or, erect a monument at a city-owned asset in honor, memory or recognition of an individual person, family, group, association, or significant event.
-        NOTE: The City of Myrtle Beach's Facility Naming Policy and its contents shall not supersede any procedure, requirements or statute set forth in City Code at the time the request is being reviewed.
-      </p>
+        <div class="formHeader">
+            <h1>CITY FACILITY NAMING REQUEST FORM</h1>
 
-    </div>
+            <a href="https://cms6.revize.com/revize/myrtlebeachsc/FacilitiesNamingPolicy.pdf">Before submitting a request, click here to review the city’s Facility Naming Policy.</a>
 
-    <div class="requestForm">
-
-        <div class="contactInfo">
-
-          <form  name="request" id="request" method="post" action = "<?php echo $currentFile;?>">
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name"><br>
-
-            <label for="contactpref">Contact Preference:</label><br>
-
-            <select name="contactpref" id="contactpref">
-              <option value="email">Email</option>
-              <option value="mail">Mail</option>
-              <option value="phone">Phone</option>
-            </select><br>
-
-            <label for="streetaddress">Street Address:</label><br>
-            <input type="text" id="streetaddress" name="streetaddress"><br>
-
-            <label for="streetaddress2">Address Line 2:</label><br>
-            <input type="text" id="streetaddress2" name="streetaddress2"><br>
-
-            <label for="city">City:</label><br>
-            <input type="text" id="city" name="city"><br>
-
-            <label for="state">State:</label><br>
-            <select name="state" id="state">
-
-            <?php foreach ($states as $key => $value) { ?>
-                <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
-            <?php } ?>
-
-          </select><br>
-
-            <label for="zip">Zip Code:</label><br>
-            <input type="number" id="zip" name="zip"><br>
-
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br>
-
-            <label for="phone">Phone:</label><br>
-            <input type="tel" id="phone" name="phone"><br>
-
+            <p>
+                The City of Myrtle Beach offers the opportunity for a member of the public to request to name, or rename, a city-owned asset. City assets include, but are not limited to, the following: buildings, structures, recreational facilities, parks, benches, trees and other sites.
+                Requestors submit the form below to ask the City of Myrtle Beach to: name an asset in honor, memory or recognition of an individual, family, association, group or significant event; or, erect a monument at a city-owned asset in honor, memory or recognition of an individual person, family, group, association, or significant event.
+                NOTE: The City of Myrtle Beach's Facility Naming Policy and its contents shall not supersede any procedure, requirements or statute set forth in City Code at the time the request is being reviewed.
+            </p>
 
         </div>
 
-        <div class="requestDetail">
+        <div class="requestForm">
 
-          <p>Type of Request:</p>
-            <input type="radio" id="bench-tree-plaque" name="requestType" value="Memorial Bench or Tree w/ Plaque (5 in x 7 in Bronze Plaques)">
-            <label for="bench-tree-plaque">Memorial Bench or Tree w/ Plaque</label><br>
-            <input type="radio" id="naming-renaming" name="requestType" value="Naming/Renaming">
-            <label for="naming-renaming">Naming/Renaming</label><br>
-            <input type="radio" id="other-memorial" name="requestType" value="Other Memorial">
-            <label for="other-memorial">Other Memorial</label><br>
+            <form name="request" id="request" method="post" action = "<?php echo $currentFile;?>">
+
+                <div class="contactInfo">
+                    <h2>Section: 1 Contact Information</h2>
+
+                    <div class="form-group required">
+                        <label class="control-label">Name</label>
+                        <input class="form-control form-control-sm" type="text" id="contactName" name="contactName">
+                    </div>
+
+                    <div class="form-group required">
+                        <label class="control-label">Street Address</label>
+                        <input class="form-control form-control-sm" type="text" id="contactAddress01" name="contactAddress01">
+                    </div>
+
+                    <div class="form-group required">
+                        <label class="control-label">Street Address Line 2</label>
+                        <input class="form-control form-control-sm" type="text" id="contactAddress02" name="contactAddress02">
+                    </div>
+
+                    <div class="form-group required">
+                        <label class="control-label">City</label>
+                        <input class="form-control form-control-sm" type="text" id="contactCity" name="contactCity">
+                    </div>
+
+                    <div class="form-group required">
+                        <label class="control-label">State</label>
+                        <select name="state" id="state">
+                            <?php foreach ($states as $key => $value) { ?>
+                                <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group required">
+                        <label class="control-label">Zip Code</label>
+                        <input class="form-control form-control-sm" type="text" id="contactZipCode" name="contactZipCode">
+                    </div>
+
+                    <div class="form-group required">
+                        <label class="control-label">Email</label>
+                        <input class="form-control form-control-sm" type="email" id="contactEmail" name="contactEmail">
+                    </div>
+
+                    <div class="form-group required">
+                        <label class="control-label">Phone Number</label>
+                        <input class="form-control form-control-sm" type="tel" id="contactPhoneNumber" name="contactPhoneNumber">
+                    </div>
+
+                    <div class="form-group required">
+                        <label class="control-label">Contact Perference</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="perferContact" id="contactPreferenceEmail" value="email" required>
+                            <label class="form-check-label" for="contactPreferenceEmail">Email</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="perferContact" id="contactPreferenceMail" value="mail">
+                            <label class="form-check-label" for="contactPreferenceMail">Mail</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="perferContact" id="contactPreferencePhone" value="phone">
+                            <label class="form-check-label" for="contactPreferencePhone">Phone</label>
+                        </div>
+
+                    </div>
+
+                </div> <!-- End Contact Info -->
+
+                <div class="requestDetail">
+
+                    <h2>Section 2: Request Details</h2>
+
+                    <div class="form-group required">
+                        <label class="control-label">Type of Request (Select One)</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="requestType" id="requestPlaque" value="plaque" required>
+                            <label class="form-check-label" for="requestPlaque">Memorial Bench or Tree with Plaque (5x7 inch bronze plaque)</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="requestType" id="requestNaming" value="naming">
+                            <label class="form-check-label" for="requestNaming">Naming/Renaming</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="requestType" id="requestOther" value="other">
+                            <label class="form-check-label" for="requestOther">Other Memorial</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group required">
+                        <label class="control-label">This request is in honor, recognition or memory of one of the following:</label>
+                        <br>
+                        <div class="accordion" id="accordionRequestType">
+                            <div class="accordion-item card">
+                                <div class="card-header accordion-header">
+                                    <div class="custom-control custom-radio">
+                                        <div class="form-check form-check-inline">
+                                            <input data-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#collapseIndividualFamily" aria-expanded="false" aria-controls="collapseIndividualFamily" type="radio" id="individualFamily" name="requestGroup" class="form-check-input custom-control-input" value="individualFamily" required>
+                                            <label class="form-check-label" for="individualFamily">Individual/Family</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input data-bs-toggle="collapse" data-bs-target="#collapseGroupAssociation" aria-expanded="false" aria-controls="collapseGroupAssociation" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="groupAssociation" value="groupAssociation">
+                                            <label class="form-check-label" for="groupAssociation">Naming/Renaming</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input data-bs-toggle="collapse" data-bs-target="#collapseOther" aria-expanded="false" aria-controls="collapseOther" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="otherMemorial" value="otherMemorial">
+                                            <label class="form-check-label" for="otherMemorial">Other Memorial</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="collapseIndividualFamily" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
+                                    <div class="card-body accordion-body">
+                                    // Individual/Family Content Goes Here
+                                    </div>
+                                </div>
+
+                                <div id="collapseGroupAssociation" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
+                                    <div class="card-body accordion-body">
+                                        // Group/Association Content Goes Here
+                                    </div>
+                                </div>
+
+                                <div id="collapseOther" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
+                                    <div class="card-body accordion-body">
+                                        // Other Memorial Content Goes Here
+                                    </div>
+                                </div>
 
 
-          <label for="requestfor">This request is in honor, recognition, or meomrial of (Select One):</label><br>
-            <select name="requestfor" id="requestfor">
-              <option value="individual">An Individual</option>
-              <option value="family">A Family</option>
-              <option value="group">A Group</option>
-              <option value="association">An Association</option>
-              <option value="sigEvent">A Significant Event</option>
-            </select><br>
+                            </div>
+                        </div>
 
+                    </div>
+
+
+                </div> <!-- End Request Details -->
+
+                <div class="submit">
+                   <br><input type="submit" name="submit" id="submit" value="Submit Form"/>
+                </div>
+
+            </form>
 
         </div>
 
-        <div class="requestType">
+    </div> <!-- End Container -->
 
-            <div class="individualFamily">
+    <?php
+    }//showform
+    ?>
 
-            </div>
-
-            <div class="groupAssociation">
-
-            </div>
-
-            <div class="significantEvent">
-
-            </div>
-
-        </div>
-
-        <div class="otherDetails">
-
-        </div>
-
-        <div class="uploadFile">
-
-        </div>
-
-        <div class="submit">
-           <br><input type="submit" name="submit" id="submit" value="Submit Form"/>
-        </div>
-      </form>
-        <?php
-        }//showform
-        ?>
-
-    </div>
 </body>
 </html>
