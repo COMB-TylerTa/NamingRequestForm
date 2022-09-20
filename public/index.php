@@ -99,11 +99,19 @@
         <link href="styles/styles.css" rel="stylesheet">
         <title>City Facility Naming Request Form</title>
 
+        
+
     </head>
 
     <body>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+        <!-- MDB -->
+        <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
+        ></script>
 
         <?php
             //after user clicks submit, hide form and display message
@@ -145,22 +153,22 @@
 
                         <div class="form-group required">
                             <label class="control-label">Name</label>
-                            <input class="form-control form-control-sm" type="text" id="contactName" name="contactName">
+                            <input class="form-control form-control-sm" type="text" id="contactName" name="contactName" required>
                         </div>
 
                         <div class="form-group required">
                             <label class="control-label">Street Address</label>
-                            <input class="form-control form-control-sm" type="text" id="contactAddress01" name="contactAddress01">
+                            <input class="form-control form-control-sm" type="text" id="contactAddress01" name="contactAddress01" required>
                         </div>
 
-                        <div class="form-group required">
+                        <div class="form-group">
                             <label class="control-label">Street Address Line 2</label>
                             <input class="form-control form-control-sm" type="text" id="contactAddress02" name="contactAddress02">
                         </div>
 
                         <div class="form-group required">
                             <label class="control-label">City</label>
-                            <input class="form-control form-control-sm" type="text" id="contactCity" name="contactCity">
+                            <input class="form-control form-control-sm" type="text" id="contactCity" name="contactCity" required>
                         </div>
 
                         <div class="form-group required">
@@ -174,17 +182,17 @@
 
                         <div class="form-group required">
                             <label class="control-label">Zip Code</label>
-                            <input class="form-control form-control-sm" type="text" id="contactZipCode" name="contactZipCode">
+                            <input class="form-control form-control-sm" type="text" id="contactZipCode" name="contactZipCode" required>
                         </div>
 
                         <div class="form-group required">
                             <label class="control-label">Email</label>
-                            <input class="form-control form-control-sm" type="email" id="contactEmail" name="contactEmail">
+                            <input class="form-control form-control-sm" type="email" id="contactEmail" name="contactEmail" required>
                         </div>
 
                         <div class="form-group required">
                             <label class="control-label">Phone Number</label>
-                            <input class="form-control form-control-sm" type="tel" id="contactPhoneNumber" name="contactPhoneNumber">
+                            <input class="form-control form-control-sm" type="tel" id="contactPhoneNumber" name="contactPhoneNumber" required>
                         </div>
 
                         <div class="form-group required">
@@ -257,8 +265,18 @@
                                     </div>
 
                                     <div id="collapseIndividualFamily" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
-                                        <div class="card-body accordion-body">
-                                        // Individual/Family Content Goes Here
+                                        <div class="card-body accordion-body container">
+                                            <h3>Request Related to Individual or Family</h3>
+
+                                            <label>Name</label>
+                                            <input class="form-control form-control-sm" type="text" id="individualFamilyName" name="individualFamilyName">
+
+                                            <label>Deceased?</label>
+                                            <select class="form-select form-select-sm" aria-label="Deceased dropdown selection" required>
+                                                <option value="" selected disabled>Please select</option>
+                                                <option value="yesDeceased">Yes</option>
+                                                <option value="notDeceased">No</option>
+                                            </select>
                                         </div>
                                     </div>
 
