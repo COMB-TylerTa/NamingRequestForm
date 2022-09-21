@@ -52,8 +52,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if($showform == 0){
     ?>
 
-    <p>Thank you! The City has recieved your request and will review it shortly.</p>
-
+    <div class='center-screen'>
+      <div class="container">
+        <div class='successbox'>
+          <div class='img-box'>
+          <p></p>
+          </div>
+          <div class='successtext'>
+          	<p>Thank you! The City has recieved your request and will review it shortly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <?php
       }
     ?>

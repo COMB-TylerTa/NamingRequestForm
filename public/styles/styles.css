@@ -6,14 +6,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  min-height: 60vh;
+  min-height: 70vh;
 }
 
 .successbox {
   display: flex;
   border-radius: 15px;
-  width: 40%;
+  align-items: center;
   background-color: #64ABE3;
   border-style: solid;
   border-color: #64ABE3;
@@ -23,18 +22,19 @@
 .successtext {
   float: right;
   display: flex;
+  text-alight: center;
   align-items: center;
-  width: 80%;
   color: white;
-  font-size:1.2vw;
+  font-size: 1.7em;
 }
 
 .img-box {
     background-image: url("https://www.cityofmyrtlebeach.com/_assets_/images/logo.png");
     float: left;
-    width: 30%;
-    height: 160px;
+    width: 20%;
+    height: 180px;
     background-size: 80%;
     background-repeat: no-repeat;
-     object-fit: contain;
+   object-fit: contain;
+   padding: 2%;
 }
