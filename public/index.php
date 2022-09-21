@@ -197,17 +197,17 @@
                                     <div class="card-header accordion-header">
                                         <div class="custom-control custom-radio">
                                             <div class="form-check form-check-inline">
-                                                <input data-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#collapseIndividualFamily" aria-expanded="false" aria-controls="collapseIndividualFamily" type="radio" id="individualFamily" name="requestGroup" class="form-check-input custom-control-input" value="individualFamily" required>
+                                                <input data-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#collapseIndividualFamily" aria-expanded="false" aria-controls="collapseIndividualFamily" type="radio" id="individualFamily" name="requestGroup" class="form-check-input custom-control-input" value="Individual/Family" required>
                                                 <label class="form-check-label" for="individualFamily">Individual/Family</label>
                                             </div>
 
                                             <div class="form-check form-check-inline">
-                                                <input data-bs-toggle="collapse" data-bs-target="#collapseGroupAssociation" aria-expanded="false" aria-controls="collapseGroupAssociation" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="groupAssociation" value="groupAssociation">
+                                                <input data-bs-toggle="collapse" data-bs-target="#collapseGroupAssociation" aria-expanded="false" aria-controls="collapseGroupAssociation" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="groupAssociation" value="Group/Association">
                                                 <label class="form-check-label" for="groupAssociation">Group/Association</label>
                                             </div>
 
                                             <div class="form-check form-check-inline">
-                                                <input data-bs-toggle="collapse" data-bs-target="#collapseSignificantEvent" aria-expanded="false" aria-controls="collapseSignificantEvent" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="significantEvent" value="significantEvent">
+                                                <input data-bs-toggle="collapse" data-bs-target="#collapseSignificantEvent" aria-expanded="false" aria-controls="collapseSignificantEvent" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="significantEvent" value="Significant Event">
                                                 <label class="form-check-label" for="significantEvent">Significant Event</label>
                                             </div>
                                         </div>
