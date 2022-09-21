@@ -68,21 +68,34 @@
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-        $name = trim($_POST['name']);
-        $streetaddress = trim($_POST['streetaddress']);
-        $city = trim($_POST['city']);
-        $state = trim($_POST['state']);
-        $zip = trim($_POST['zip']);
-        $email = trim($_POST['email']);
+      $name = trim($_POST['contactName']);
+      $streetaddress = trim($_POST['contactAddress01']);
+      $streetaddress2 = trim($_POST['contactAddress02']);
+      $city = trim($_POST['contactCity']);
+      $state = trim($_POST['state']);
+      $zip = trim($_POST['contactZipCode']);
+      $email = trim($_POST['contactEmail']);
+      $phone = trim($_POST['contactPhoneNumber']);
+      $contactpref = ($_POST['perferContact']);
+
+      $requestType = ($_POST['requestType']);
+      $requestGroup = ($_POST['requestGroup']);
 
 
 
-        //EMAIL the user upon registration success
-        $subject = "Test, It Worked!";
-        $txt = "Test";
-        mail($email,$subject,$txt);
+      require_once "includes/email-template.php";
 
-        $showform = 0;
+      $emailTemplate = wordwrap($emailTemplate, 70, "\r\n");
+
+      // To send HTML mail, the Content-type header must be set
+      $headers[] = 'MIME-Version: 1.0';
+      $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+      //EMAIL the user upon registration success
+      $subject = "City Facility Naming Request";
+      mail($email,$subject,$emailTemplate,implode("\r\n", $headers));
+
+      $showform = 0;
     }
 
     require_once('/controllers/memorialRequestTypeAccordion.js');
