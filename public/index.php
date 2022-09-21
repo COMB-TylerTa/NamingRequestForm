@@ -7,7 +7,7 @@
      * Date: 9/19/22
      */
 
-     
+
 
     $showform = 1; //flag to show form - initially, show form.
     $errmsg = 0; //flag to track errors - initially, no errors.
@@ -109,7 +109,7 @@
 
         <title>City Facility Naming Request Form</title>
 
-        
+
 
     </head>
 
@@ -129,8 +129,18 @@
             if($showform == 0){
         ?>
 
-        <p>Thank you! The City has recieved your request and will review your request shortly.</p>
-
+        <div class='center-screen'>
+          <div class="container">
+            <div class='successbox'>
+              <div class='img-box'>
+              <p></p>
+              </div>
+              <div class='successtext'>
+              	<p>Thank you! The City has recieved your request and will review it shortly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <?php
         }
         ?>
@@ -139,7 +149,7 @@
             //Display the form
             if($showform == 1){
         ?>
-        
+
         <div class="container">
 
             <div class="formHeader">
@@ -150,7 +160,7 @@
                 <p>
                     The City of Myrtle Beach offers the opportunity for a member of the public to request to name, or rename, a city-owned asset. City assets include, but are not limited to, the following: buildings, structures, recreational facilities, parks, benches, trees and other sites.
                     Requestors submit the form below to ask the City of Myrtle Beach to: name an asset in honor, memory or recognition of an individual, family, association, group or significant event; or, erect a monument at a city-owned asset in honor, memory or recognition of an individual person, family, group, association, or significant event.
-                    NOTE: The City of Myrtle Beach's Facility Naming Policy and its contents shall not supersede any procedure, requirements or statute set forth in City Code at the time the request is being reviewed. 
+                    NOTE: The City of Myrtle Beach's Facility Naming Policy and its contents shall not supersede any procedure, requirements or statute set forth in City Code at the time the request is being reviewed.
                 </p>
 
             </div>
@@ -272,7 +282,7 @@
                                                 <input data-bs-toggle="collapse" data-bs-target="#collapseSignificantEvent" aria-expanded="false" aria-controls="collapseSignificantEvent" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="significantEvent" value="significantEvent">
                                                 <label class="form-check-label" for="significantEvent">Significant Event</label>
                                             </div>
-                                        </div>   
+                                        </div>
                                     </div>
 
                                     <div id="collapseIndividualFamily" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
@@ -290,10 +300,10 @@
                                             </select>
 
                                             <label>Date of Death</label>
-                                            <div class="input-group date" id="datepicker"> 
+                                            <div class="input-group date" id="datepicker">
                                                 <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="date-input-container">
-                                                <span class="input-group-append input-group-text" id=""> 
-                                                    <span class="bg-white"> 
+                                                <span class="input-group-append input-group-text" id="">
+                                                    <span class="bg-white">
                                                         <i class="bi bi-calendar"></i>
                                                     </span>
                                                 </span>
@@ -432,10 +442,10 @@
                                             </div>
 
                                             <label>Date of Significant Event</label>
-                                            <div class="input-group date" id="eventDatepicker"> 
+                                            <div class="input-group date" id="eventDatepicker">
                                                 <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="date-input-container">
-                                                <span class="input-group-append input-group-text" id=""> 
-                                                    <span class="bg-white"> 
+                                                <span class="input-group-append input-group-text" id="">
+                                                    <span class="bg-white">
                                                         <i class="bi bi-calendar"></i>
                                                     </span>
                                                 </span>
@@ -464,10 +474,10 @@
                                                     <label class="form-check-label" for="globalImpact">Global</label>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
 
-                                        
+
                                     </div>
 
 
@@ -482,7 +492,7 @@
                 </form>
 
             </div>
-            
+
         </div> <!-- End Container -->
 
         <script>
@@ -525,4 +535,3 @@
     </body>
 
 </html>
-
