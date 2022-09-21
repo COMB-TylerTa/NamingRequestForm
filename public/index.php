@@ -66,7 +66,10 @@
             </div>
           </div>
         </div>
+
+
         <?php
+        //close showform conditional
         }
         ?>
 
