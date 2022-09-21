@@ -174,17 +174,17 @@
                             <label class="control-label">Type of Request (Select One)</label>
                             <br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="requestType" id="requestPlaque" value="plaque" required>
+                                <input class="form-check-input" type="radio" name="requestType" id="requestPlaque" value="Plaque" required>
                                 <label class="form-check-label" for="requestPlaque">Memorial Bench or Tree with Plaque (5x7 inch bronze plaque)</label>
                             </div>
 
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="requestType" id="requestNaming" value="naming">
+                                <input class="form-check-input" type="radio" name="requestType" id="requestNaming" value="Naming">
                                 <label class="form-check-label" for="requestNaming">Naming/Renaming</label>
                             </div>
 
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="requestType" id="requestOther" value="other">
+                                <input class="form-check-input" type="radio" name="requestType" id="requestOther" value="Other">
                                 <label class="form-check-label" for="requestOther">Other Memorial</label>
                             </div>
                         </div>
