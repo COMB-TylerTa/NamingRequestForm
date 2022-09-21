@@ -29,7 +29,7 @@
 }
 
 .img-box {
-    background-image: url(images/COMB-logo.png);
+    background-image: url(../images/COMB-logo.png);
     float: left;
     width: 20%;
     height: 180px;
