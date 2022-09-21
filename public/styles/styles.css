@@ -22,19 +22,18 @@
 .successtext {
   float: right;
   display: flex;
-  text-alight: center;
+  text-align: center;
   align-items: center;
   color: white;
   font-size: 1.7em;
 }
 
 .img-box {
-    background-image: url("https://www.cityofmyrtlebeach.com/_assets_/images/logo.png");
+    background-image: url(images/COMB-logo.png);
     float: left;
     width: 20%;
     height: 180px;
-    background-size: 80%;
+    background-size: 70%;
     background-repeat: no-repeat;
-   object-fit: contain;
-   padding: 2%;
+    padding: inherit;
 }
