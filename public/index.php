@@ -42,8 +42,8 @@
       $showform = 0;
     }
 
-    require_once('/controllers/memorialRequestTypeAccordion.js');
-    require_once('/controllers/phoneNumberInputFormatter.js');
+    require_once('controllers/memorialRequestTypeAccordion.js');
+    //require_once('controllers/phoneNumberInputFormatter.js');
 
 ?>
 
@@ -417,8 +417,12 @@
 
                     </div> <!-- End Request Details -->
 
-                </form>
+                    <div class="submit">
+                       <br><input type="submit" name="submit" id="submit" value="Submit Form"/>
+                    </div>
 
+                </form>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
 
         </div> <!-- End Container -->
