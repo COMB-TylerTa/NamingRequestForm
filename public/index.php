@@ -144,17 +144,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         <label class="control-label">Contact Perference</label>
                         <br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="perferContact" id="contactPreferenceEmail" value="email" required>
+                            <input class="form-check-input" type="radio" name="perferContact" id="contactPreferenceEmail" value="Email" required>
                             <label class="form-check-label" for="contactPreferenceEmail">Email</label>
                         </div>
 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="perferContact" id="contactPreferenceMail" value="mail">
+                            <input class="form-check-input" type="radio" name="perferContact" id="contactPreferenceMail" value="Mail">
                             <label class="form-check-label" for="contactPreferenceMail">Mail</label>
                         </div>
 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="perferContact" id="contactPreferencePhone" value="phone">
+                            <input class="form-check-input" type="radio" name="perferContact" id="contactPreferencePhone" value="Phone">
                             <label class="form-check-label" for="contactPreferencePhone">Phone</label>
                         </div>
 
@@ -170,17 +170,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         <label class="control-label">Type of Request (Select One)</label>
                         <br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="requestType" id="requestPlaque" value="plaque" required>
+                            <input class="form-check-input" type="radio" name="requestType" id="requestPlaque" value="Plaque" required>
                             <label class="form-check-label" for="requestPlaque">Memorial Bench or Tree with Plaque (5x7 inch bronze plaque)</label>
                         </div>
 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="requestType" id="requestNaming" value="naming">
+                            <input class="form-check-input" type="radio" name="requestType" id="requestNaming" value="Naming">
                             <label class="form-check-label" for="requestNaming">Naming/Renaming</label>
                         </div>
 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="requestType" id="requestOther" value="other">
+                            <input class="form-check-input" type="radio" name="requestType" id="requestOther" value="Other">
                             <label class="form-check-label" for="requestOther">Other Memorial</label>
                         </div>
                     </div>
@@ -193,17 +193,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 <div class="card-header accordion-header">
                                     <div class="custom-control custom-radio">
                                         <div class="form-check form-check-inline">
-                                            <input data-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#collapseIndividualFamily" aria-expanded="false" aria-controls="collapseIndividualFamily" type="radio" id="individualFamily" name="requestGroup" class="form-check-input custom-control-input" value="individualFamily" required>
+                                            <input data-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#collapseIndividualFamily" aria-expanded="false" aria-controls="collapseIndividualFamily" type="radio" id="individualFamily" name="requestGroup" class="form-check-input custom-control-input" value="Individual/Family" required>
                                             <label class="form-check-label" for="individualFamily">Individual/Family</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                            <input data-bs-toggle="collapse" data-bs-target="#collapseGroupAssociation" aria-expanded="false" aria-controls="collapseGroupAssociation" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="groupAssociation" value="groupAssociation">
+                                            <input data-bs-toggle="collapse" data-bs-target="#collapseGroupAssociation" aria-expanded="false" aria-controls="collapseGroupAssociation" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="groupAssociation" value="Group/Association">
                                             <label class="form-check-label" for="groupAssociation">Naming/Renaming</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                            <input data-bs-toggle="collapse" data-bs-target="#collapseOther" aria-expanded="false" aria-controls="collapseOther" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="otherMemorial" value="otherMemorial">
+                                            <input data-bs-toggle="collapse" data-bs-target="#collapseOther" aria-expanded="false" aria-controls="collapseOther" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="otherMemorial" value="Other Memorial">
                                             <label class="form-check-label" for="otherMemorial">Other Memorial</label>
                                         </div>
                                     </div>
