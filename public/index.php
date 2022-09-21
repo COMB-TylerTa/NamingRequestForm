@@ -424,22 +424,6 @@
         </div> <!-- End Container -->
 
         <script>
-            /**
-            $('#date').datepicker({
-                autoclose:true,
-                clearBtn: true,
-                container: '.datepicker'
-            });
-            **/
-
-            /**
-            $('.datepicker').datepicker({
-                format: 'mm/dd/yyyy',
-                autoclose:true,
-                clearBtn: true,
-                container: '.datepicker'
-            });
-            **/
 
             $(function(){
                 $('#datepicker').datepicker({
@@ -460,6 +444,11 @@
             });
 
         </script>
+
+        <?php
+            //Display the form
+          }
+        ?>
     </body>
 
 </html>
