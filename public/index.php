@@ -235,19 +235,36 @@
                         <div class="form-group required">
                             <label class="control-label">Type of Request (Select One)</label>
                             <br>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="requestType" id="requestPlaque" value="plaque" required>
-                                <label class="form-check-label" for="requestPlaque">Memorial Bench or Tree with Plaque (5x7 inch bronze plaque)</label>
-                            </div>
+                            <div class="accordion" id="accordionMemorialType">
+                                <div class="accordion-item card">
+                                    <div class="card-header accordion-header">
+                                        <div class="custom-control custom-radio">
+                                            <div class="form-check form-check-inline">
+                                                <input data-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#collapseMemorialPlaque" aria-expanded="false" aria-controls="collapseMemorialPlaque" class="form-check-input custom-control-input" type="radio" name="requestType" id="requestPlaque" value="plaque" required>
+                                                <label class="form-check-label" for="requestPlaque">Memorial Bench or Tree with Plaque (5x7 inch bronze plaque)</label>
+                                            </div>
 
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="requestType" id="requestNaming" value="naming">
-                                <label class="form-check-label" for="requestNaming">Naming/Renaming</label>
-                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="requestType" id="requestNaming" value="naming">
+                                                <label class="form-check-label" for="requestNaming">Naming/Renaming</label>
+                                            </div>
 
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="requestType" id="requestOther" value="other">
-                                <label class="form-check-label" for="requestOther">Other Memorial</label>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="requestType" id="requestOther" value="other">
+                                                <label class="form-check-label" for="requestOther">Other Memorial</label>
+                                            </div>
+                                        </div>
+                                    </div> <!-- End Memorial Type - Card Header -->
+
+                                    <div id="collapseMemorialPlaque" class="accordion-collapse collapse" data-bs-parent="#accordionMemorialType">
+                                        <div class="card-body accordion-body container">
+                                            <div class="form-group">
+                                                <label>For a plaque, what would you like it to say?</label>
+                                                <textarea class="form-control" id="plaqueTexts" row="3"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -273,7 +290,7 @@
                                                 <label class="form-check-label" for="significantEvent">Significant Event</label>
                                             </div>
                                         </div>   
-                                    </div>
+                                    </div> <!-- End Accordion Request Type -->
 
                                     <div id="collapseIndividualFamily" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
                                         <div class="card-body accordion-body container">
@@ -355,11 +372,11 @@
                                             </div>
 
                                         </div>
-                                    </div>
+                                    </div> <!-- End Individual/Family Subsection -->
 
                                     <div id="collapseGroupAssociation" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
                                         <div class="card-body accordion-body">
-                                            <h3>Request Related to Individual or Family</h3>
+                                            <h3>Request Related to Group or Association</h3>
 
                                             <label>Association/Group Name</label>
                                             <input class="form-control form-control-sm" type="text" id="associationGroupName" name="associationGroupName">
@@ -420,7 +437,7 @@
 
 
                                         </div>
-                                    </div>
+                                    </div> <!-- End Group/Association Subsection -->
 
                                     <div id="collapseSignificantEvent" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
                                         <div class="card-body accordion-body">
@@ -442,7 +459,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label">Impact of Significant Event (Select One)</label>
+                                                <label class="">Impact of Significant Event (Select One)</label>
                                                 <br>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" name="eventImpact" id="localImpact" value="local">
@@ -468,16 +485,34 @@
                                         </div>
 
                                         
-                                    </div>
+                                    </div> <!-- End Significant Event Subsection -->
 
 
                                 </div>
                             </div>
 
-                        </div>
+                        </div> <!-- End Form -->
 
 
                     </div> <!-- End Request Details -->
+
+                    <div class="otherDetails"> 
+                        <h2>Other Details</h2>
+
+                        <div class="form-group"> 
+                            <label>Please provide any relebant details for the request in the text box below, or attach PDFs with the "Upload File(s)" option.</label>
+                            <textarea class="form-control" id="otherDetailsTextBox" rows="3"></textarea>
+                        </div>
+                    </div> <!-- End Other Details -->
+
+                    <div class="uploadFile mb-3">
+                        <label for="formFileMultiple">Upload File(s)</label>
+                        <input class="form-control" type="file" id="formFileMultiple" multiple>
+                    </div> <!-- End Upload File -->
+
+                    <div class="submit">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
 
                 </form>
 
