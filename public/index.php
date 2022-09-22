@@ -7,133 +7,73 @@
      * Date: 9/19/22
      */
 
-     
+    require_once "includes/header.php";
 
-    $showform = 1; //flag to show form - initially, show form.
-    $errmsg = 0; //flag to track errors - initially, no errors.
-
-    $states = array(
-        'AL'=>'Alabama',
-        'AK'=>'Alaska',
-        'AZ'=>'Arizona',
-        'AR'=>'Arkansas',
-        'CA'=>'California',
-        'CO'=>'Colorado',
-        'CT'=>'Connecticut',
-        'DE'=>'Delaware',
-        'DC'=>'District of Columbia',
-        'FL'=>'Florida',
-        'GA'=>'Georgia',
-        'HI'=>'Hawaii',
-        'ID'=>'Idaho',
-        'IL'=>'Illinois',
-        'IN'=>'Indiana',
-        'IA'=>'Iowa',
-        'KS'=>'Kansas',
-        'KY'=>'Kentucky',
-        'LA'=>'Louisiana',
-        'ME'=>'Maine',
-        'MD'=>'Maryland',
-        'MA'=>'Massachusetts',
-        'MI'=>'Michigan',
-        'MN'=>'Minnesota',
-        'MS'=>'Mississippi',
-        'MO'=>'Missouri',
-        'MT'=>'Montana',
-        'NE'=>'Nebraska',
-        'NV'=>'Nevada',
-        'NH'=>'New Hampshire',
-        'NJ'=>'New Jersey',
-        'NM'=>'New Mexico',
-        'NY'=>'New York',
-        'NC'=>'North Carolina',
-        'ND'=>'North Dakota',
-        'OH'=>'Ohio',
-        'OK'=>'Oklahoma',
-        'OR'=>'Oregon',
-        'PA'=>'Pennsylvania',
-        'RI'=>'Rhode Island',
-        'SC'=>'South Carolina',
-        'SD'=>'South Dakota',
-        'TN'=>'Tennessee',
-        'TX'=>'Texas',
-        'UT'=>'Utah',
-        'VT'=>'Vermont',
-        'VA'=>'Virginia',
-        'WA'=>'Washington',
-        'WV'=>'West Virginia',
-        'WI'=>'Wisconsin',
-        'WY'=>'Wyoming',
-    );
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-        $name = trim($_POST['name']);
-        $streetaddress = trim($_POST['streetaddress']);
-        $city = trim($_POST['city']);
-        $state = trim($_POST['state']);
-        $zip = trim($_POST['zip']);
-        $email = trim($_POST['email']);
+      $name = trim($_POST['contactName']);
+      $streetaddress = trim($_POST['contactAddress01']);
+      $streetaddress2 = trim($_POST['contactAddress02']);
+      $city = trim($_POST['contactCity']);
+      $state = trim($_POST['state']);
+      $zip = trim($_POST['contactZipCode']);
+      $email = trim($_POST['contactEmail']);
+      $phone = trim($_POST['contactPhoneNumber']);
+      $contactpref = ($_POST['perferContact']);
 
-
-
-        //EMAIL the user upon registration success
-        $subject = "Test, It Worked!";
-        $txt = "Test";
-        mail($email,$subject,$txt);
-
-        $showform = 0;
-    }
-
-    require_once('/controllers/memorialRequestTypeAccordion.js');
-    require_once('/controllers/phoneNumberInputFormatter.js');
+      $requestType = ($_POST['requestType']);
+      $requestGroup = ($_POST['requestGroup']);
 
     require_once('controllers/ifDeceasedAccordion.js');
 
 ?>
 
-<!DOCTYPE html>
-<html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-        <!-- Custom Style Sheet -->
-        <link href="styles/styles.css" rel="stylesheet">
+      require_once "includes/email-template.php";
 
-        <!-- Bootstrap Datepicker Style Sheet -->
-        <link href="css/bootstrap-datepicker.min.css" rel="stylesheet">
+      $emailTemplate = wordwrap($emailTemplate, 70, "\r\n");
 
-        <!-- Bootstrap Icon CDN -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+      // To send HTML mail, the Content-type header must be set
+      $headers[] = 'MIME-Version: 1.0';
+      $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
-        <title>City Facility Naming Request Form</title>
+      //EMAIL the user upon registration success
+      $subject = "City Facility Naming Request";
+      mail($email,$subject,$emailTemplate,implode("\r\n", $headers));
 
-        
+      $showform = 0;
+    }
 
-    </head>
+    require_once('controllers/memorialRequestTypeAccordion.js');
+    //require_once('controllers/phoneNumberInputFormatter.js');
+
+?>
 
     <body>
-
-        <!-- Bootstrap CDN -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-
-        <!-- JQuery CDN -->
-        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-
-        <!-- Bootstrap Date Picker (Javascript) -->
-        <script src="./js/bootstrap-datepicker.min.js"></script>
 
         <?php
             //after user clicks submit, hide form and display message
             if($showform == 0){
         ?>
 
-        <p>Thank you! The City has recieved your request and will review your request shortly.</p>
+        <div class='center-screen'>
+          <div class="container">
+            <div class='successbox'>
+              <div class='img-box'>
+              <p></p>
+              </div>
+              <div class='successtext'>
+              	<p>Thank you! The City has recieved your request and will review it shortly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
         <?php
+        //close showform conditional
         }
         ?>
 
@@ -141,7 +81,7 @@
             //Display the form
             if($showform == 1){
         ?>
-        
+
         <div class="container">
 
             <div class="formHeader">
@@ -152,7 +92,7 @@
                 <p>
                     The City of Myrtle Beach offers the opportunity for a member of the public to request to name, or rename, a city-owned asset. City assets include, but are not limited to, the following: buildings, structures, recreational facilities, parks, benches, trees and other sites.
                     Requestors submit the form below to ask the City of Myrtle Beach to: name an asset in honor, memory or recognition of an individual, family, association, group or significant event; or, erect a monument at a city-owned asset in honor, memory or recognition of an individual person, family, group, association, or significant event.
-                    NOTE: The City of Myrtle Beach's Facility Naming Policy and its contents shall not supersede any procedure, requirements or statute set forth in City Code at the time the request is being reviewed. 
+                    NOTE: The City of Myrtle Beach's Facility Naming Policy and its contents shall not supersede any procedure, requirements or statute set forth in City Code at the time the request is being reviewed.
                 </p>
 
             </div>
@@ -237,6 +177,7 @@
                         <div class="form-group required">
                             <label class="control-label">Type of Request (Select One)</label>
                             <br>
+
                             <div class="accordion" id="accordionMemorialType">
                                 <div class="accordion-item card">
                                     <div class="card-header accordion-header">
@@ -267,6 +208,21 @@
                                         </div>
                                     </div>
                                 </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="requestType" id="requestPlaque" value="Plaque" required>
+                                <label class="form-check-label" for="requestPlaque">Memorial Bench or Tree with Plaque (5x7 inch bronze plaque)</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="requestType" id="requestNaming" value="Naming">
+                                <label class="form-check-label" for="requestNaming">Naming/Renaming</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="requestType" id="requestOther" value="Other">
+                                <label class="form-check-label" for="requestOther">Other Memorial</label>
+
                             </div>
                         </div>
 
@@ -278,21 +234,23 @@
                                     <div class="card-header accordion-header">
                                         <div class="custom-control custom-radio">
                                             <div class="form-check form-check-inline">
-                                                <input data-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#collapseIndividualFamily" aria-expanded="false" aria-controls="collapseIndividualFamily" type="radio" id="individualFamily" name="requestGroup" class="form-check-input custom-control-input" value="individualFamily" required>
+                                                <input data-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#collapseIndividualFamily" aria-expanded="false" aria-controls="collapseIndividualFamily" type="radio" id="individualFamily" name="requestGroup" class="form-check-input custom-control-input" value="Individual/Family" required>
                                                 <label class="form-check-label" for="individualFamily">Individual/Family</label>
                                             </div>
 
                                             <div class="form-check form-check-inline">
-                                                <input data-bs-toggle="collapse" data-bs-target="#collapseGroupAssociation" aria-expanded="false" aria-controls="collapseGroupAssociation" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="groupAssociation" value="groupAssociation">
+                                                <input data-bs-toggle="collapse" data-bs-target="#collapseGroupAssociation" aria-expanded="false" aria-controls="collapseGroupAssociation" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="groupAssociation" value="Group/Association">
                                                 <label class="form-check-label" for="groupAssociation">Group/Association</label>
                                             </div>
 
                                             <div class="form-check form-check-inline">
-                                                <input data-bs-toggle="collapse" data-bs-target="#collapseSignificantEvent" aria-expanded="false" aria-controls="collapseSignificantEvent" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="significantEvent" value="significantEvent">
+                                                <input data-bs-toggle="collapse" data-bs-target="#collapseSignificantEvent" aria-expanded="false" aria-controls="collapseSignificantEvent" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="significantEvent" value="Significant Event">
                                                 <label class="form-check-label" for="significantEvent">Significant Event</label>
                                             </div>
+
                                         </div>   
                                     </div> <!-- End Accordion Request Type -->
+
 
                                     <div id="collapseIndividualFamily" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
                                         <div class="card-body accordion-body container">
@@ -309,10 +267,10 @@
                                             </select>
 
                                             <label>Date of Death</label>
-                                            <div class="input-group date" id="datepicker"> 
+                                            <div class="input-group date" id="datepicker">
                                                 <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="date-input-container">
-                                                <span class="input-group-append input-group-text" id=""> 
-                                                    <span class="bg-white"> 
+                                                <span class="input-group-append input-group-text" id="">
+                                                    <span class="bg-white">
                                                         <i class="bi bi-calendar"></i>
                                                     </span>
                                                 </span>
@@ -457,10 +415,10 @@
                                             </div>
 
                                             <label>Date of Significant Event</label>
-                                            <div class="input-group date" id="eventDatepicker"> 
+                                            <div class="input-group date" id="eventDatepicker">
                                                 <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="date-input-container">
-                                                <span class="input-group-append input-group-text" id=""> 
-                                                    <span class="bg-white"> 
+                                                <span class="input-group-append input-group-text" id="">
+                                                    <span class="bg-white">
                                                         <i class="bi bi-calendar"></i>
                                                     </span>
                                                 </span>
@@ -489,11 +447,11 @@
                                                     <label class="form-check-label" for="globalImpact">Global</label>
                                                 </div>
                                             </div>
-                                            
-                                        </div>
 
+                                        </div>
                                         
                                     </div> <!-- End Significant Event Subsection -->
+
 
 
                                 </div>
@@ -518,14 +476,15 @@
                         <input class="form-control" type="file" id="formFileMultiple" multiple>
                     </div> <!-- End Upload File -->
 
+
                     <div class="submit">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                       <br><input type="submit" name="submit" id="submit" value="Submit Form" class="btn btn-primary"/>
                     </div>
 
                 </form>
-
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
-            
+
         </div> <!-- End Container -->
 
         <script>
@@ -549,7 +508,11 @@
             });
 
         </script>
+
+        <?php
+            //Display the form
+          }
+        ?>
     </body>
 
 </html>
-

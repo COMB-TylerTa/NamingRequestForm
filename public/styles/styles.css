@@ -2,3 +2,38 @@
     content: "*";
     color: red;
 }
+.center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.successbox {
+  display: flex;
+  border-radius: 15px;
+  align-items: center;
+  background-color: #64ABE3;
+  border-style: solid;
+  border-color: #64ABE3;
+  padding: 1%;
+}
+
+.successtext {
+  float: right;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: white;
+  font-size: 1.7em;
+}
+
+.img-box {
+    background-image: url(../images/COMB-logo.png);
+    float: left;
+    width: 20%;
+    height: 180px;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    padding: inherit;
+}
