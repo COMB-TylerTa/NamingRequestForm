@@ -88,6 +88,8 @@
     require_once('/controllers/memorialRequestTypeAccordion.js');
     require_once('/controllers/phoneNumberInputFormatter.js');
 
+    require_once('controllers/ifDeceasedAccordion.js');
+
 ?>
 
 <!DOCTYPE html>
@@ -300,10 +302,10 @@
                                             <input class="form-control form-control-sm" type="text" id="individualFamilyName" name="individualFamilyName">
 
                                             <label>Deceased?</label>
-                                            <select class="form-select form-select-sm" aria-label="Deceased dropdown selection" required>
+                                            <select class="form-select form-select-sm" aria-label="Deceased dropdown selection" name="ifDeceasedSelection" id="ifDeceasedSelection" required>
                                                 <option value="" selected disabled>Please select</option>
-                                                <option value="yesDeceased">Yes</option>
-                                                <option value="notDeceased">No</option>
+                                                <option value="yesDeceased" data-bs-toggle="collapse" href="#notDeceasedForm">Yes</option>
+                                                <option value="notDeceased" data-bs-toggle="collapse" data-parent="#collapseIndividualFamily" href="#notDeceasedForm">No</option>
                                             </select>
 
                                             <label>Date of Death</label>
@@ -315,60 +317,66 @@
                                                     </span>
                                                 </span>
                                             </div>
-                                            <p>NOTE: If deceased, proceed to "Section: Other Details"</p>
 
-                                            <div class="form-group">
-                                                <label>Street Address</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyAddress01" name="individualFamilyAddress01">
-                                            </div>
+                                            <div id="notDeceasedForm" class="accordion-collapse collapse">
 
-                                            <div class="form-group">
-                                                <label>Street Address 2</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyAddress02" name="individualFamilyAddress02">
-                                            </div>
+                                                <div class="panel-body">
 
-                                            <div class="form-group">
-                                                <label>City</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyCity" name="individualFamilyCity">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>State</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyState" name="individualFamilyState">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Zip Code</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyZip" name="individualFamilyZip">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Email Address</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyEmail" name="individualFamilyEmail">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Phone Number</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyPhone" name="individualFamilyPhone">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="individualFamilyContributions">As applicable, please not any financal contributions made by the individual or family pertaining to this request, including the total dollar amount and purpose, below...</label>
-                                                <textarea class="form-control" id="individualFamilyContributions" rows="3"></textarea>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Are in-kind services/financial/contributions being receved by the City of Myrtle Beach?</label>
-                                                <br>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="cityReceived" id="cityReceivedYes" value="yes">
-                                                    <label class="form-check-label" for="cityReceivedYes">Yes</label>
+                                                <div class="form-group">
+                                                    <label>Street Address</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyAddress01" name="individualFamilyAddress01">
                                                 </div>
 
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="cityReceived" id="cityReceivedNo" value="no">
-                                                    <label class="form-check-label" for="cityReceivedNo">No</label>
+                                                <div class="form-group">
+                                                    <label>Street Address 2</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyAddress02" name="individualFamilyAddress02">
                                                 </div>
+
+                                                <div class="form-group">
+                                                    <label>City</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyCity" name="individualFamilyCity">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>State</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyState" name="individualFamilyState">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Zip Code</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyZip" name="individualFamilyZip">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Email Address</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyEmail" name="individualFamilyEmail">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Phone Number</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyPhone" name="individualFamilyPhone">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="individualFamilyContributions">As applicable, please not any financal contributions made by the individual or family pertaining to this request, including the total dollar amount and purpose, below...</label>
+                                                    <textarea class="form-control" id="individualFamilyContributions" rows="3"></textarea>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Are in-kind services/financial/contributions being receved by the City of Myrtle Beach?</label>
+                                                    <br>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="cityReceived" id="cityReceivedYes" value="yes">
+                                                        <label class="form-check-label" for="cityReceivedYes">Yes</label>
+                                                    </div>
+
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="cityReceived" id="cityReceivedNo" value="no">
+                                                        <label class="form-check-label" for="cityReceivedNo">No</label>
+                                                    </div>
+                                                </div>
+
+                                                </div> <!-- End Panel Body -->
                                             </div>
 
                                         </div>
@@ -521,22 +529,6 @@
         </div> <!-- End Container -->
 
         <script>
-            /**
-            $('#date').datepicker({
-                autoclose:true,
-                clearBtn: true,
-                container: '.datepicker'
-            });
-            **/
-
-            /**
-            $('.datepicker').datepicker({
-                format: 'mm/dd/yyyy',
-                autoclose:true,
-                clearBtn: true,
-                container: '.datepicker'
-            });
-            **/
 
             $(function(){
                 $('#datepicker').datepicker({
