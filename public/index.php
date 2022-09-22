@@ -25,6 +25,10 @@
       $requestType = ($_POST['requestType']);
       $requestGroup = ($_POST['requestGroup']);
 
+    require_once('controllers/ifDeceasedAccordion.js');
+
+?>
+
 
 
       require_once "includes/email-template.php";
@@ -173,6 +177,38 @@
                         <div class="form-group required">
                             <label class="control-label">Type of Request (Select One)</label>
                             <br>
+
+                            <div class="accordion" id="accordionMemorialType">
+                                <div class="accordion-item card">
+                                    <div class="card-header accordion-header">
+                                        <div class="custom-control custom-radio">
+                                            <div class="form-check form-check-inline">
+                                                <input data-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#collapseMemorialPlaque" aria-expanded="false" aria-controls="collapseMemorialPlaque" class="form-check-input custom-control-input" type="radio" name="requestType" id="requestPlaque" value="plaque" required>
+                                                <label class="form-check-label" for="requestPlaque">Memorial Bench or Tree with Plaque (5x7 inch bronze plaque)</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="requestType" id="requestNaming" value="naming">
+                                                <label class="form-check-label" for="requestNaming">Naming/Renaming</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="requestType" id="requestOther" value="other">
+                                                <label class="form-check-label" for="requestOther">Other Memorial</label>
+                                            </div>
+                                        </div>
+                                    </div> <!-- End Memorial Type - Card Header -->
+
+                                    <div id="collapseMemorialPlaque" class="accordion-collapse collapse" data-bs-parent="#accordionMemorialType">
+                                        <div class="card-body accordion-body container">
+                                            <div class="form-group">
+                                                <label>For a plaque, what would you like it to say?</label>
+                                                <textarea class="form-control" id="plaqueTexts" row="3"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="requestType" id="requestPlaque" value="Plaque" required>
                                 <label class="form-check-label" for="requestPlaque">Memorial Bench or Tree with Plaque (5x7 inch bronze plaque)</label>
@@ -186,6 +222,7 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="requestType" id="requestOther" value="Other">
                                 <label class="form-check-label" for="requestOther">Other Memorial</label>
+
                             </div>
                         </div>
 
@@ -210,8 +247,10 @@
                                                 <input data-bs-toggle="collapse" data-bs-target="#collapseSignificantEvent" aria-expanded="false" aria-controls="collapseSignificantEvent" class="form-check-input custom-control-input" type="radio" name="requestGroup" id="significantEvent" value="Significant Event">
                                                 <label class="form-check-label" for="significantEvent">Significant Event</label>
                                             </div>
-                                        </div>
-                                    </div>
+
+                                        </div>   
+                                    </div> <!-- End Accordion Request Type -->
+
 
                                     <div id="collapseIndividualFamily" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
                                         <div class="card-body accordion-body container">
@@ -221,10 +260,10 @@
                                             <input class="form-control form-control-sm" type="text" id="individualFamilyName" name="individualFamilyName">
 
                                             <label>Deceased?</label>
-                                            <select class="form-select form-select-sm" aria-label="Deceased dropdown selection" required>
+                                            <select class="form-select form-select-sm" aria-label="Deceased dropdown selection" name="ifDeceasedSelection" id="ifDeceasedSelection" required>
                                                 <option value="" selected disabled>Please select</option>
-                                                <option value="yesDeceased">Yes</option>
-                                                <option value="notDeceased">No</option>
+                                                <option value="yesDeceased" data-bs-toggle="collapse" href="#notDeceasedForm">Yes</option>
+                                                <option value="notDeceased" data-bs-toggle="collapse" data-parent="#collapseIndividualFamily" href="#notDeceasedForm">No</option>
                                             </select>
 
                                             <label>Date of Death</label>
@@ -236,68 +275,74 @@
                                                     </span>
                                                 </span>
                                             </div>
-                                            <p>NOTE: If deceased, proceed to "Section: Other Details"</p>
 
-                                            <div class="form-group">
-                                                <label>Street Address</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyAddress01" name="individualFamilyAddress01">
-                                            </div>
+                                            <div id="notDeceasedForm" class="accordion-collapse collapse">
 
-                                            <div class="form-group">
-                                                <label>Street Address 2</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyAddress02" name="individualFamilyAddress02">
-                                            </div>
+                                                <div class="panel-body">
 
-                                            <div class="form-group">
-                                                <label>City</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyCity" name="individualFamilyCity">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>State</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyState" name="individualFamilyState">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Zip Code</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyZip" name="individualFamilyZip">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Email Address</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyEmail" name="individualFamilyEmail">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Phone Number</label>
-                                                <input class="form-control form-control-sm" type="text" id="individualFamilyPhone" name="individualFamilyPhone">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="individualFamilyContributions">As applicable, please not any financal contributions made by the individual or family pertaining to this request, including the total dollar amount and purpose, below...</label>
-                                                <textarea class="form-control" id="individualFamilyContributions" rows="3"></textarea>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>Are in-kind services/financial/contributions being receved by the City of Myrtle Beach?</label>
-                                                <br>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="cityReceived" id="cityReceivedYes" value="yes">
-                                                    <label class="form-check-label" for="cityReceivedYes">Yes</label>
+                                                <div class="form-group">
+                                                    <label>Street Address</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyAddress01" name="individualFamilyAddress01">
                                                 </div>
 
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="cityReceived" id="cityReceivedNo" value="no">
-                                                    <label class="form-check-label" for="cityReceivedNo">No</label>
+                                                <div class="form-group">
+                                                    <label>Street Address 2</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyAddress02" name="individualFamilyAddress02">
                                                 </div>
+
+                                                <div class="form-group">
+                                                    <label>City</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyCity" name="individualFamilyCity">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>State</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyState" name="individualFamilyState">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Zip Code</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyZip" name="individualFamilyZip">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Email Address</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyEmail" name="individualFamilyEmail">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Phone Number</label>
+                                                    <input class="form-control form-control-sm" type="text" id="individualFamilyPhone" name="individualFamilyPhone">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="individualFamilyContributions">As applicable, please not any financal contributions made by the individual or family pertaining to this request, including the total dollar amount and purpose, below...</label>
+                                                    <textarea class="form-control" id="individualFamilyContributions" rows="3"></textarea>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Are in-kind services/financial/contributions being receved by the City of Myrtle Beach?</label>
+                                                    <br>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="cityReceived" id="cityReceivedYes" value="yes">
+                                                        <label class="form-check-label" for="cityReceivedYes">Yes</label>
+                                                    </div>
+
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="cityReceived" id="cityReceivedNo" value="no">
+                                                        <label class="form-check-label" for="cityReceivedNo">No</label>
+                                                    </div>
+                                                </div>
+
+                                                </div> <!-- End Panel Body -->
                                             </div>
 
                                         </div>
-                                    </div>
+                                    </div> <!-- End Individual/Family Subsection -->
 
                                     <div id="collapseGroupAssociation" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
                                         <div class="card-body accordion-body">
-                                            <h3>Request Related to Individual or Family</h3>
+                                            <h3>Request Related to Group or Association</h3>
 
                                             <label>Association/Group Name</label>
                                             <input class="form-control form-control-sm" type="text" id="associationGroupName" name="associationGroupName">
@@ -358,7 +403,7 @@
 
 
                                         </div>
-                                    </div>
+                                    </div> <!-- End Group/Association Subsection -->
 
                                     <div id="collapseSignificantEvent" class="accordion-collapse collapse" data-bs-parent="#accordionRequestType">
                                         <div class="card-body accordion-body">
@@ -380,7 +425,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label class="control-label">Impact of Significant Event (Select One)</label>
+                                                <label class="">Impact of Significant Event (Select One)</label>
                                                 <br>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" name="eventImpact" id="localImpact" value="local">
@@ -404,21 +449,36 @@
                                             </div>
 
                                         </div>
+                                        
+                                    </div> <!-- End Significant Event Subsection -->
 
-
-                                    </div>
 
 
                                 </div>
                             </div>
 
-                        </div>
+                        </div> <!-- End Form -->
 
 
                     </div> <!-- End Request Details -->
 
+                    <div class="otherDetails"> 
+                        <h2>Other Details</h2>
+
+                        <div class="form-group"> 
+                            <label>Please provide any relebant details for the request in the text box below, or attach PDFs with the "Upload File(s)" option.</label>
+                            <textarea class="form-control" id="otherDetailsTextBox" rows="3"></textarea>
+                        </div>
+                    </div> <!-- End Other Details -->
+
+                    <div class="uploadFile mb-3">
+                        <label for="formFileMultiple">Upload File(s)</label>
+                        <input class="form-control" type="file" id="formFileMultiple" multiple>
+                    </div> <!-- End Upload File -->
+
+
                     <div class="submit">
-                       <br><input type="submit" name="submit" id="submit" value="Submit Form"/>
+                       <br><input type="submit" name="submit" id="submit" value="Submit Form" class="btn btn-primary"/>
                     </div>
 
                 </form>
