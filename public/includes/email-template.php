@@ -460,6 +460,39 @@ $emailTemplate = "
                                                                                         <p>This request is in honor, recognition, or memorial of: &nbsp;<strong>" . $requestGroup . "</strong> </p>
                                                                                     </td>
                                                                                 </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table cellpadding='0' cellspacing='0' class='es-content' align='center'>
+                            <tbody>
+                                <tr>
+                                    <td class='esd-stripe' align='center'>
+                                        <table bgcolor='#ffffff' class='es-content-body' align='center' cellpadding='0' cellspacing='0' width='600'>
+                                            <tbody>
+                                                <tr>
+                                                    <td class='es-p20t es-p20r es-p20l esd-structure' align='left'>
+                                                        <table cellpadding='0' cellspacing='0' width='100%'>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td width='560' class='esd-container-frame' align='center' valign='top'>
+                                                                        <table cellpadding='0' cellspacing='0' width='100%'>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td align='left' class='esd-block-text'>
+                                                                                        <p>Text on plaque: <strong>". $plaqueTexts . "</strong></p>
+                                                                                    </td>
+                                                                                </tr>
                                                                                 <tr>
                                                                                     <td align='center' class='esd-block-spacer es-p20t es-p10b es-p20r es-p20l' style='font-size:0'>
                                                                                         <table border='0' width='100%' height='100%' cellpadding='0' cellspacing='0'>
@@ -534,7 +567,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Their Name:</p>
+                                                                                        <p>Their Name: <strong>". $individualFamilyName . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -568,7 +601,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Are they deceased?:</p>
+                                                                                        <p>Are they deceased?: <strong>". $individualFamilyDeceased . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -586,161 +619,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Date of Death:</p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <!--[if mso]></td></tr></table><![endif]-->
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class='es-p20t es-p20r es-p20l esd-structure' align='left'>
-                                                        <!--[if mso]><table width='560' cellpadding='0' cellspacing='0'><tr><td width='320' valign='top'><![endif]-->
-                                                        <table cellpadding='0' cellspacing='0' class='es-left' align='left'>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td width='320' class='es-m-p20b esd-container-frame' align='left'>
-                                                                        <table cellpadding='0' cellspacing='0' width='100%'>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align='left' class='esd-block-text'>
-                                                                                        <p>Street Address:</p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <!--[if mso]></td><td width='20'></td><td width='220' valign='top'><![endif]-->
-                                                        <table cellpadding='0' cellspacing='0' class='es-right' align='right'>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td width='220' align='left' class='esd-container-frame'>
-                                                                        <table cellpadding='0' cellspacing='0' width='100%'>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align='left' class='esd-block-text'>
-                                                                                        <p>Address Line 2:</p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <!--[if mso]></td></tr></table><![endif]-->
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class='es-p20t es-p20r es-p20l esd-structure' align='left'>
-                                                        <!--[if mso]><table width='560' cellpadding='0' cellspacing='0'><tr><td width='279' valign='top'><![endif]-->
-                                                        <table cellpadding='0' cellspacing='0' class='es-left' align='left'>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td width='259' class='es-m-p20b esd-container-frame' align='left'>
-                                                                        <table cellpadding='0' cellspacing='0' width='100%'>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align='left' class='esd-block-text'>
-                                                                                        <p>City:</p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                    <td class='es-hidden' width='20'></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <!--[if mso]></td><td width='116' valign='top'><![endif]-->
-                                                        <table cellpadding='0' cellspacing='0' class='es-left' align='left'>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td width='116' align='left' class='esd-container-frame es-m-p20b'>
-                                                                        <table cellpadding='0' cellspacing='0' width='100%'>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align='left' class='esd-block-text'>
-                                                                                        <p>State:</p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <!--[if mso]></td><td width='20'></td><td width='145' valign='top'><![endif]-->
-                                                        <table cellpadding='0' cellspacing='0' class='es-right' align='right'>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td width='145' align='left' class='esd-container-frame'>
-                                                                        <table cellpadding='0' cellspacing='0' width='100%'>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align='left' class='esd-block-text'>
-                                                                                        <p>Zip:</p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <!--[if mso]></td></tr></table><![endif]-->
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <table cellpadding='0' cellspacing='0' class='es-content' align='center'>
-                            <tbody>
-                                <tr>
-                                    <td class='esd-stripe' align='center'>
-                                        <table bgcolor='#ffffff' class='es-content-body' align='center' cellpadding='0' cellspacing='0' width='600'>
-                                            <tbody>
-                                                <tr>
-                                                    <td class='es-p20t es-p20r es-p20l esd-structure' align='left'>
-                                                        <!--[if mso]><table width='560' cellpadding='0' cellspacing='0'><tr><td width='340' valign='top'><![endif]-->
-                                                        <table cellpadding='0' cellspacing='0' class='es-left' align='left'>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td width='340' class='es-m-p20b esd-container-frame' align='left'>
-                                                                        <table cellpadding='0' cellspacing='0' width='100%'>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align='left' class='esd-block-text'>
-                                                                                        <p>Email:</p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <!--[if mso]></td><td width='20'></td><td width='200' valign='top'><![endif]-->
-                                                        <table cellpadding='0' cellspacing='0' class='es-right' align='right'>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td width='200' align='left' class='esd-container-frame'>
-                                                                        <table cellpadding='0' cellspacing='0' width='100%'>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align='left' class='esd-block-text'>
-                                                                                        <p>Phone:</p>
+                                                                                        <p>Date of Death: <strong>". $individualFamilyDOD. "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -762,7 +641,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>As applicable, please note any financial contributions made by the group or association pertaining to this request, including the total dollar amount and purpose:<br><br><br></p>
+                                                                                        <p>As applicable, please note any financial contributions made by the group or association pertaining to this request, including the total dollar amount and purpose:<br> <strong>". $individualFamilyContributions . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -795,7 +674,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Are in-kind services/financial/other contributions being received from the City?:&nbsp;<br><br></p>
+                                                                                        <p>Are in-kind services/financial/other contributions being received from the City?:<br><strong>". $cityReceived . "</strong><br></p>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -872,7 +751,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Group/ Association Name:</p>
+                                                                                        <p>Group/ Association Name: <strong>". $associationGroupName . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -906,7 +785,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Street Address:</p>
+                                                                                        <p>Street Address: <strong>". $associationGroupAddress01 . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -924,7 +803,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Address Line 2:</p>
+                                                                                        <p>Address Line 2: <strong>". $associationGroupAddress02 . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -947,7 +826,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>City:</p>
+                                                                                        <p>City: <strong>". $associationGroupCity . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -966,7 +845,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>State:</p>
+                                                                                        <p>State: <strong>". $associationGroupState . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -984,7 +863,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Zip:</p>
+                                                                                        <p>Zip: <strong>". $associationGroupZip . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -1007,7 +886,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Email:</p>
+                                                                                        <p>Email: <strong>". $associationGroupEmail . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -1025,7 +904,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Phone:</p>
+                                                                                        <p>Phone: <strong>". $associationGroupPhone . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -1047,12 +926,12 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>As applicable, please note any financial contributions made by the group or association pertaining to this request, including the total dollar amount and purpose:<br><br></p>
+                                                                                        <p>As applicable, please note any financial contributions made by the group or association pertaining to this request, including the total dollar amount and purpose:<br><strong>". $associationGroupContributions . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Are in-kind services/financial/other contributions being received from the City?:&nbsp;<br><br></p>
+                                                                                        <p>Are in-kind services/financial/other contributions being received from the City?:<br><strong>". $cityReceivedGroup . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -1157,7 +1036,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Significant event:</p>
+                                                                                        <p>Significant event: <strong>". $significantEventName . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -1191,7 +1070,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Occured:</p>
+                                                                                        <p>Occured: <strong>". $significantEventDate . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -1209,7 +1088,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Impact:</p>
+                                                                                        <p>Impact: <strong>". $eventImpact . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>
@@ -1315,7 +1194,7 @@ $emailTemplate = "
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align='left' class='esd-block-text'>
-                                                                                        <p>Other Details/ Writing to go on Plaque:</p>
+                                                                                        <p>Other Details: <strong>". $otherDetailsTextBox . "</strong></p>
                                                                                     </td>
                                                                                 </tr>
                                                                             </tbody>

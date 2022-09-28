@@ -2,6 +2,11 @@
     content: "*";
     color: red;
 }
+
+.form-group {
+  padding-top: .7%;
+}
+
 .center-screen {
   display: flex;
   justify-content: center;
@@ -13,9 +18,9 @@
   display: flex;
   border-radius: 15px;
   align-items: center;
-  background-color: #64ABE3;
+  background-color: #0096FF;
   border-style: solid;
-  border-color: #64ABE3;
+  border-color: #0096FF;
   padding: 1%;
 }
 
@@ -36,4 +41,66 @@
     background-size: 70%;
     background-repeat: no-repeat;
     padding: inherit;
+}
+
+.blankSpace {
+  padding: 2%;
+}
+
+.form-request-box {
+  background-color: #0096FF;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #0096FF;
+  padding: 2% 5% 5% 5%;
+}
+
+.form-request-mini-box {
+  background-color: white;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #0096FF;
+  padding: 2%;
+}
+
+.form-request-description-box {
+  background-color: white;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #0096FF;
+  padding: 0% 3% 0% 3%;
+}
+
+.header-img-box{
+  float: left;
+  background-image: url(../images/COMB-logo.png);
+  width: 20%;
+  height: auto;
+  background-size: 70%;
+  background-repeat: no-repeat;
+
+}
+
+.header-img-and-text{
+  display: flex;
+  padding-right: 7%;
+  padding-left: 7%;
+}
+
+h1 {
+  text-align: right;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 5px #000; /* horizontal-offset vertical-offset 'blur' colour */
+  -moz-text-shadow: 0 0 5px #000;
+  -webkit-text-shadow: 0 0 5px #000;
+}
+
+h3 {
+  text-align: right;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 5px #000; /* horizontal-offset vertical-offset 'blur' colour */
+  -moz-text-shadow: 0 0 5px #000;
+  -webkit-text-shadow: 0 0 5px #000;
 }
