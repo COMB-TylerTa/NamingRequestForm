@@ -16,7 +16,6 @@
     require 'includes/PHPMailer/src/PHPMailer.php';
     require 'includes/PHPMailer/src/SMTP.php';
 
-    $error = '';
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
@@ -57,19 +56,18 @@
 
 
         if (empty($cityReceived)) {
-          //$cityReceived = 'Not selected';
-          $error .= '<p style="color:red;">City Recieved radio button is not selected</p>';
+          $cityReceived = 'Not selected';
         } else {
           $cityReceived = trim($_POST['cityReceived']);
         }
 
         if (empty($individualFamilyDeceased)){
-          //$individualFamilyDeceased = 'Not selected';
-          $error .= '<p style="color:red;">Deceased? drop down is not selected</p>';
+          $individualFamilyDeceased = 'Not selected';
         } else {
           $individualFamilyDeceased = trim($_POST['ifDeceasedSelection']);
 
         }
+
 
         $associationGroupName = '';
         $associationGroupAddress01 = '';
@@ -102,8 +100,7 @@
 
 
         if (empty($cityReceivedGroup)) {
-          //$cityReceivedGroup = 'Not selected';
-          $error .= '<p style="color:red;">Deceased? drop down is not selected</p>';
+          $cityReceivedGroup = 'Not selected';
         } else {
           $cityReceivedGroup = trim($_POST['cityReceivedGroup']);
         }
@@ -135,9 +132,7 @@
 
 
       if (empty($eventImpact)) {
-        //$eventImpact = 'Not selected';
-        $error .= '<p style="color:red;">Impact of Significant Event is not selected</p>';
-
+        $eventImpact = 'Not selected';
       } else {
         $eventImpact = trim($_POST['eventImpact']);
       }
@@ -168,8 +163,7 @@
 
     }
 
-    //If form was submitted without errors, send email and display thank you message
-    if ($error == '') {
+
     //Create an instance; passing `true` enables exceptions
     $mail = new PHPMailer(true);
 
@@ -220,10 +214,7 @@
     }
 
       $showform = 0;
-    } else {
-      echo $error;
     }
-  }
 
 
 
